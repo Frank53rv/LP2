@@ -28,7 +28,7 @@ public class LP5 {
         double promedioMayoresEdad = calculadoraEdades.calcularPromedioMayoresEdad();
         double promedioMenoresEdad = calculadoraEdades.calcularPromedioMenoresEdad();
 
-        System.out.printf("El promedio de edad de los mayores de edad es: %.2f%n", promedioMayoresEdad);
-        System.out.printf("El promedio de edad de los menores de edad es: %.2f%n", promedioMenoresEdad);
+        System.out.printf("El promedio de edad de los mayores de edad es: ", promedioMayoresEdad);
+        System.out.printf("El promedio de edad de los menores de edad es: ", promedioMenoresEdad);
     }
 }
