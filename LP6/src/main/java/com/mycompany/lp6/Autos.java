@@ -26,7 +26,6 @@ public class Autos {
     }
 
     // Métodos getters y setters
-    // Puedes generarlos automáticamente en tu IDE para simplificar el código
     public int getId() {
         return id;
     }
