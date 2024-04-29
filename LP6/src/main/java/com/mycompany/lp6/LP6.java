@@ -23,30 +23,41 @@ public class LP6 {
             System.out.print("Ingrese una opcion: ");
             int option = scanner.nextInt();
             switch (option) {
-                case 1:
-                    {
-                        // Solicitar datos del auto al usuario
-                        System.out.println("Ingrese ID del vehiculo:");
-                        int id = scanner.nextInt();
-                        scanner.nextLine();
-                        System.out.println("Ingrese marca del vehiculo:");
-                        String marca = scanner.nextLine();
-                        System.out.println("Ingrese modelo del vehiculo:");
-                        String modelo = scanner.nextLine();
-                        System.out.println("Ingrese ano del vehiculo:");
-                        int ano = scanner.nextInt();
-                        scanner.nextLine();
-                        System.out.println("Ingrese numero de chasis del vehiculo:");
-                        String numeroChasis = scanner.nextLine();
-                        System.out.println("Ingrese color del vehiculo:");
-                        String color = scanner.nextLine();
-                        
-                        // Crear un auto nuevo viste
-                        Autos auto = new Autos(id, marca, modelo, ano, numeroChasis, color);
-                        autos.add(auto);
-                        System.out.println("Auto agregado exitosamente");
-                        break;
-                    }
+                case 1: {
+                        boolean idDuplicada = true; //filtro para las ids repetidas
+                        while (idDuplicada) {
+                            // Solicitar datos del auto al usuario
+                            System.out.println("Ingrese ID del vehiculo:");
+                            int id = scanner.nextInt();
+                            scanner.nextLine();
+
+                            // Verificar si la ID ya existe en la lista
+                            idDuplicada = autos.stream()
+                                    .anyMatch(a -> a.getId() == id);
+
+        if (idDuplicada) {
+            System.out.println("Error: Ya existe un auto con esa ID. Ingrese otra ID.");
+        } else {
+            System.out.println("Ingrese marca del vehiculo:");
+            String marca = scanner.nextLine();
+            System.out.println("Ingrese modelo del vehiculo:");
+            String modelo = scanner.nextLine();
+            System.out.println("Ingrese ano del vehiculo:");
+            int ano = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Ingrese numero de chasis del vehiculo:");
+            String numeroChasis = scanner.nextLine();
+            System.out.println("Ingrese color del vehiculo:");
+            String color = scanner.nextLine();
+
+            // Crear un auto nuevo y agregarlo a la lista
+            Autos auto = new Autos(id, marca, modelo, ano, numeroChasis, color);
+            autos.add(auto);
+            System.out.println("Auto agregado exitosamente");
+        }
+    }
+    break;
+}
                 case 2:
                     {
                         System.out.print("Ingrese el ID del auto a buscar: ");
